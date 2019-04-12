@@ -2,6 +2,7 @@
 
 #include "OpenDoor.h"
 #include "GameFramework/Actor.h"
+#include "Engine/TriggerVolume.h"
 
 
 // Sets default values for this component's properties
@@ -19,13 +20,15 @@ UOpenDoor::UOpenDoor()
 void UOpenDoor::BeginPlay()
 {
 	Super::BeginPlay();
-	Owner = GetOwner();
+	AActor * Owner = GetOwner();
 	
 	FRotator NewRotation = FRotator(0.f, 60.f, 0.f);
 	
 	Owner->SetActorRotation(NewRotation);
 
 	UE_LOG(LogTemp, Warning, TEXT("%s"), *Owner->GetTransform().GetRotation().ToString());
+
+	//ATriggerVolume * PressurePlate;
 }
 
 

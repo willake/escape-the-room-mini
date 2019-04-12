@@ -4,8 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "Engine/TriggerVolume.h"
 #include "OpenDoor.generated.h"
-
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class ESCAPETHEROOMMINI_API UOpenDoor : public UActorComponent
@@ -25,6 +25,10 @@ public:
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 private:
-	AActor * Owner;
+	UPROPERTY(EditAnywhere)
+		float OpenAngle = 90.f;
+	
+	UPROPERTY(EditAnywhere)
+		ATriggerVolume * PressurePlate;
 	
 };
